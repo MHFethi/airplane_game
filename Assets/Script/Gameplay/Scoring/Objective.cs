@@ -39,7 +39,17 @@ public class Objective : MonoBehaviour
 
     public void NextRing()
     {
-        // increment the ringPassed
+
+        /* Let trigger animation on ring. After created the animation in Animation unity
+         * Open our animation controller (here Ring in asset/animation/)
+         * Make a transition between IdleRing and CompletedRing
+         * Create a Param (type trigger) and named it "collectionTrigger)
+         * Click on the arrow in the transition link and add collectionTrigger in the coondition list
+         * Set the trigger in this script in the nextRing method
+         */
+        rings[ringPassed].GetComponent<Animator>().SetTrigger("collectionTrigger");
+
+        // Increment the ringPassed
         ringPassed++;
         //If it is the final ring, let's call the victory
         if(ringPassed == rings.Count)
@@ -62,6 +72,11 @@ public class Objective : MonoBehaviour
         Debug.Log("SCORING:" + ringPassed);
     }
 
+
+    public Transform GetCurrentRing()
+    {
+        return rings[ringPassed];
+    }
     private void Victory()
     {
         /// FindObjectOfType<GameObject>().CompleteLevel();
