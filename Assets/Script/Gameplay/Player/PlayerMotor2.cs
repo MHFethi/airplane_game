@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMotor2 : MonoBehaviour
 {
     private CharacterController controller;
-    private float baseSpeed = 25.0f;
+    public float baseSpeed = 25.0f;
     private float rotSpeedX = 30.0f;
     private float rotSpeedY = 30.0f;
 
