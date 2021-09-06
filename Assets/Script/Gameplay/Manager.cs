@@ -42,7 +42,7 @@ public class Manager : MonoBehaviour
             if(activeTouches.ContainsKey(touch.fingerId))
                 activeTouches.Remove(touch.fingerId);
             }
-            else // Our finger is either moving or stationary, in booth cases, let's use the delta
+            else // Our finger is either moving or stationary, in both cases, let's use the delta
             {
                 float mag = 0;
                 r = (touch.position - activeTouches[touch.fingerId]);
