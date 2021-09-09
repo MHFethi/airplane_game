@@ -8,11 +8,17 @@ public class PlayerMotor2 : MonoBehaviour
     public float baseSpeed = 25.0f;
     private float rotSpeedX = 30.0f;
     private float rotSpeedY = 30.0f;
+    
+    public PlayerHP playerHP;
+    public int maxHP = 5;
+    public int currentHP;
 
     // Start is called before the first frame update
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        currentHP = maxHP;
+        playerHP.SetMaxHP(maxHP);
     }
 
     // Update is called once per frame
@@ -46,4 +52,13 @@ public class PlayerMotor2 : MonoBehaviour
         // Move him
         controller.Move(moveVector * Time.deltaTime);
     }
+
+    /* public void AttackTarget()
+    {
+        GameObject laser = Instantiate(projectile_player, transform) as GameObject;
+        Rigidbody rb = laser.GetComponent<Rigidbody>();
+        rb.velocity = transform.forward * 20;
+    }*/
+
+
 }

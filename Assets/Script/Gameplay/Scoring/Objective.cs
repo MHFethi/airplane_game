@@ -5,15 +5,11 @@ using UnityEngine;
 
 public class Objective : MonoBehaviour
 {
-    
     private List<Transform> rings = new List<Transform>();
-   
     public Material activeRing;
     public Material inactiveRing;
-    public Material finalRing;
-    
+    public Material finalRing; 
     private int ringPassed = 0;
-
     public void Start()
     {
 
