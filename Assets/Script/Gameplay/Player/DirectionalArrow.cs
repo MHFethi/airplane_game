@@ -6,7 +6,6 @@ public class DirectionalArrow : MonoBehaviour
 {
     public Objective objective;
     private Transform playerTransform;
-  //  private Transform arrow;
 
 
     // Start is called before the first frame update
@@ -18,17 +17,21 @@ public class DirectionalArrow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-         if(objective != null)
-        {
-            // if we have an objective, Rotate the arrow. with this, it will also tilt the arrow down or up depending on the Y position of objective
-            transform.LookAt(objective.GetCurrentRing().position);
 
-            // Here the arrow does not tilt on the Y axis 
-            /* Vector3 dir = objective.GetCurrentRing().position;
-             dir.y = transform.position.y;
-             dir.x = transform.position.x;
-             transform.LookAt(dir);
-            */
-        }
+        if (objective != null)
+        {
+            if (objective.GetCurrentRing() != null)
+            {
+                Vector3 dir = objective.GetCurrentRing().position;
+
+                // if we have an objective, Rotate the arrow. with this, it will also tilt the arrow down or up depending on the Y position of objective
+                transform.LookAt(dir);
+
+                // Here the arrow does not tilt on the Y axis 
+                dir.y = transform.position.y;
+                dir.x = transform.position.x;
+                transform.LookAt(dir);
+            }
+        } 
     }
 }

@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class Objective : MonoBehaviour
 {
@@ -10,6 +12,9 @@ public class Objective : MonoBehaviour
     public Material inactiveRing;
     public Material finalRing; 
     private int ringPassed = 0;
+    public SaveState state;
+
+
     public void Start()
     {
 
@@ -71,13 +76,19 @@ public class Objective : MonoBehaviour
 
     public Transform GetCurrentRing()
     {
-        return rings[ringPassed];
+        if(rings.Count > 0)
+        {
+            return rings[ringPassed];
+
+        }
+        Debug.Log("no Current ring:" + rings.Count);
+
+        return null;
+        
     }
     private void Victory()
     {
-        /// FindObjectOfType<GameObject>().CompleteLevel();
-        Debug.Log("VICTORY");
-
-
+        FindObjectOfType<SceneFader>().FadeTo("StageClear");
+       // SceneManager.LoadScene("StageClear");
     }
 }
