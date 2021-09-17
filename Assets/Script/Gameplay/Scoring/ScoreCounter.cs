@@ -13,11 +13,11 @@ public class ScoreCounter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        textDisplay.GetComponent<Text>().text = "Score " + scoreValue;
+        textDisplay.GetComponent<Text>().text = "Score: " + scoreValue + " Pts";
     }
 
     void Update()
     {
-        textDisplay.GetComponent<Text>().text = "Score " + scoreValue;
+        textDisplay.GetComponent<Text>().text = "Score: " + scoreValue + " Pts";
     }
 }

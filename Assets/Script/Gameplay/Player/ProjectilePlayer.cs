@@ -69,8 +69,7 @@ public class ProjectilePlayer : MonoBehaviour
         var bullet = Instantiate(laser, barrel.position, barrel.rotation);
         bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * bulletSpeed;
         Destroy(bullet, despawnTime);
-        // Play audio
-        laser.GetComponent<AudioSource>().Play();
+        
     }
 
 }

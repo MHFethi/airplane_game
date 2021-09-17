@@ -2,6 +2,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using System.Collections.Generic;
+
 
 public class SceneFader : MonoBehaviour
 {
@@ -10,8 +12,7 @@ public class SceneFader : MonoBehaviour
 	public AnimationCurve curve;
 	private AsyncOperation loading;
 	private GameObject tempScreen;
-	private Scene currentScene;
-
+	public Scene currentScene;
 
 	void Start()
 	{
@@ -47,12 +48,12 @@ public class SceneFader : MonoBehaviour
 			img.color = new Color(0f, 0f, 0f, a);
 			yield return 0;
 		}
-
 		SceneManager.LoadScene(scene);
+		//LoadScene(scene);
 	}
 
-
-
+	
+	/*
 	public void LoadScene(string scene)
 	{
 		tempScreen.SetActive(true);
@@ -62,12 +63,13 @@ public class SceneFader : MonoBehaviour
 
 	private void OnSceneLoaded(AsyncOperation obj)
 	{
+		currentScene = SceneManager.GetActiveScene();
 		loading.completed -= OnSceneLoaded;
 		tempScreen.SetActive(false);
 		SceneManager.UnloadSceneAsync(currentScene);
 	}
 
-
+	*/
 
 
 }

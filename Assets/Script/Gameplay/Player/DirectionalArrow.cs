@@ -5,13 +5,13 @@ using UnityEngine;
 public class DirectionalArrow : MonoBehaviour
 {
     public Objective objective;
-    private Transform playerTransform;
+    [SerializeField]
+    private Transform target;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        playerTransform = FindObjectOfType<PlayerMotor2>().transform;
     }
 
     // Update is called once per frame
@@ -32,6 +32,10 @@ public class DirectionalArrow : MonoBehaviour
                 dir.x = transform.position.x;
                 transform.LookAt(dir);
             }
-        } 
+            else
+            {
+            }
+        }
+       
     }
 }

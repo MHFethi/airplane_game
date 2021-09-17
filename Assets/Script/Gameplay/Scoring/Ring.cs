@@ -28,11 +28,10 @@ public class Ring : MonoBehaviour
         if (ringActive)
         {
             if (other.CompareTag("Player")) {
-                ScoreCounter.scoreValue += 100;
-                addtimer = timer.GetSecondLeft() + 5;
+                ScoreCounter.scoreValue += 100; // add scoring
+                addtimer = timer.GetSecondLeft() + 5; // add more time at timer
                 timer.SetSecondLeft(addtimer);
-                objectiveScript.NextRing();
-                Debug.Log("Enter");
+                objectiveScript.NextRing(); // We passed to the next ring
             }                  
         }
     }   

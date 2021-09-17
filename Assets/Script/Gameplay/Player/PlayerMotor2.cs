@@ -16,6 +16,8 @@ public class PlayerMotor2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+       FindObjectOfType<MusicManager>().Stop("intro");
+        FindObjectOfType<MusicManager>().Play("battle");
         controller = GetComponent<CharacterController>();
         currentHP = maxHP;
         playerHP.SetMaxHP(maxHP);
@@ -52,13 +54,5 @@ public class PlayerMotor2 : MonoBehaviour
         // Move him
         controller.Move(moveVector * Time.deltaTime);
     }
-
-    /* public void AttackTarget()
-    {
-        GameObject laser = Instantiate(projectile_player, transform) as GameObject;
-        Rigidbody rb = laser.GetComponent<Rigidbody>();
-        rb.velocity = transform.forward * 20;
-    }*/
-
 
 }

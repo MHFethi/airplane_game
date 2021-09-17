@@ -53,14 +53,17 @@ public class Objective : MonoBehaviour
         // Increment the ringPassed
         ringPassed++;
         //If it is the final ring, let's call the victory
-        if(ringPassed == rings.Count)
+        Debug.Log("ringPassed " + ringPassed);
+        Debug.Log("rings.Count " + rings.Count);
+
+        if ((ringPassed - 1).Equals(rings.Count-2))
         {
             Victory();
             return;
         }
 
-        //If this is the previous last, give the next ring the "Final ring" material
-        if (ringPassed == rings.Count - 1)
+        // If this is the previous last, give the next ring the "Final ring" material
+        if (ringPassed == rings.Count - 2)
             rings[ringPassed].GetComponent<MeshRenderer>().material = finalRing;
         else
             rings[ringPassed].GetComponent<MeshRenderer>().material = activeRing;
@@ -70,25 +73,17 @@ public class Objective : MonoBehaviour
         // in both cases, we need to activate the ring
             rings[ringPassed].GetComponent<Ring>().RingActived();
         
-        Debug.Log("SCORING:" + ringPassed);
     }
 
 
     public Transform GetCurrentRing()
     {
-        if(rings.Count > 0)
-        {
-            return rings[ringPassed];
-
-        }
-        Debug.Log("no Current ring:" + rings.Count);
-
-        return null;
-        
+        return rings[ringPassed];
     }
+
+
     private void Victory()
     {
         FindObjectOfType<SceneFader>().FadeTo("StageClear");
-       // SceneManager.LoadScene("StageClear");
     }
 }

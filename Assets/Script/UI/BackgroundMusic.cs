@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class BackgroundMusic : MonoBehaviour
 {
@@ -8,6 +10,9 @@ public class BackgroundMusic : MonoBehaviour
 
     private void Awake()
     {
+       // Scene currentScene = SceneManager.GetActiveScene();
+      //  Debug.Log(currentScene.name);
+
         if (backgroundMusic == null)
         {
             backgroundMusic = this;
